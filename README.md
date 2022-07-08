@@ -2,12 +2,17 @@
 
 ## Docker
 
+Bajar imagen de hello-world:
+
 > docker pull hello-world
+
+Ejecutar imagen de hello-world:
 
 > docker run hello-world
 
 ## Docker/SQL Server
 
+Bajar imagen de SQL Server
 > docker pull mcr.microsoft.com/mssql/server:2022-latest
 
 La carpeta mssql debe estar creada en el home-directory del usuario con sus respectivas carpetas de data, secrets y log
@@ -25,5 +30,7 @@ y hechos algunos cambios:
 Se agrega el repositorio remoto:
 
 > git remote add origin https://github.com/DavidHernandezMorones/campus-git-docker.git
+
+Y se suben los cambios:
 
 > git push -u origin main
