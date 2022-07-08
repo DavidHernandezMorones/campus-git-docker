@@ -19,16 +19,16 @@ Agregar la conexion de la base de datos:
 
 > docker network create dbconnection
 
+La carpeta mssql debe estar creada en el home-directory del usuario con sus respectivas carpetas de data, secrets y log
+> docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=SQLd0cker!" -p 9001:1433 -v c:\Users\%USERNAME%\mssql\sqldata:/var/opt/mssql/data -v c:\Users\%USERNAME%\mssql\sqllog:/var/opt/mssql/log -v c:\Users\%USERNAME%\mssql\sqlsecrets:/var/opt/mssql/secrets --network dbconnection --name sqlserver -d mcr.microsoft.com/mssql/server:2022-latest
+
 El siguiente comando muestra informacion del contenedor, la cual tiene
 la dirección ip
 
-> docker inspect practical_hofstadter
-
-La carpeta mssql debe estar creada en el home-directory del usuario con sus respectivas carpetas de data, secrets y log
-> docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=SQLd0cker!" -p 9001:1433 -v c:\Users\%USERNAME%\mssql\sqldata:/var/opt/mssql/data -v c:\Users\%USERNAME%\mssql\sqllog:/var/opt/mssql/log -v c:\Users\%USERNAME%\mssql\sqlsecrets:/var/opt/mssql/secrets --network dbconnection -d mcr.microsoft.com/mssql/server:2022-latest
+> docker inspect sqlserver
 
 Conectarse a la base de datos localmente
-> docker exec -it practical_hofstadter /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P SQLd0cker!
+> docker exec -it sqlserver /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P SQLd0cker!
 
 ## Git (remoto)
 Una vez creado el repositorio local con:
